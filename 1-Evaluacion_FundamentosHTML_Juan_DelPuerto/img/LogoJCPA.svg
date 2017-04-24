@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="LogoJCPA.svg">
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient5983"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#005522;stop-opacity:1;"
+         offset="0"
+         id="stop5981" />
+    </linearGradient>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="-0.70047168 : 561.25983 : 1"
+       inkscape:vp_y="0 : 3779.5275 : 0"
+       inkscape:vp_z="793.00034 : 561.25983 : 1"
+       inkscape:persp3d-origin="396.14993 : 374.17322 : 1"
+       id="perspective40" />
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="-71.912996 : 227.59134 : 1"
+       inkscape:vp_y="0 : 321.63431 : 0"
+       inkscape:vp_z="449.64333 : 227.59134 : 1"
+       inkscape:persp3d-origin="188.86515 : 211.67044 : 1"
+       id="perspective10" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5983"
+       id="linearGradient5985"
+       x1="8.0554237"
+       y1="62.867336"
+       x2="99.466976"
+       y2="62.867336"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-5.9540094,-41.678066)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.75544332"
+     inkscape:cx="181.74491"
+     inkscape:cy="720.10697"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       sodipodi:type="inkscape:box3d"
+       id="g12"
+       style="fill:#668000"
+       inkscape:perspectiveID="#perspective40"
+       inkscape:corner0="22.223685 : 3.387099 : 0 : 1"
+       inkscape:corner7="0.37890628 : 0.187459 : 0.25 : 1">
+      <path
+         sodipodi:type="inkscape:box3dside"
+         id="path14"
+         style="fill:#353564;fill-rule:evenodd;stroke:none;stroke-linejoin:round"
+         inkscape:box3dsidetype="6"
+         d="m 16.387704,-807.43575 v 520.72387 l 8.271099,0.23911 v -515.17804 z"
+         points="16.387704,-286.71188 24.658803,-286.47277 24.658803,-801.65081 16.387704,-807.43575 " />
+      <path
+         sodipodi:type="inkscape:box3dside"
+         id="path24"
+         style="fill:#e9e9ff;fill-rule:evenodd;stroke:none;stroke-linejoin:round"
+         inkscape:box3dsidetype="11"
+         d="M 24.658803,-801.65081 364.74451,-8008.4419 V -584.36406 L 24.658803,-286.47277 Z"
+         points="364.74451,-8008.4419 364.74451,-584.36406 24.658803,-286.47277 24.658803,-801.65081 " />
+      <path
+         sodipodi:type="inkscape:box3dside"
+         id="path16"
+         style="fill:#4d4d9f;fill-rule:evenodd;stroke:none;stroke-linejoin:round"
+         inkscape:box3dsidetype="5"
+         d="M 16.387704,-807.43575 287.10039,-9412.4862 364.74451,-8008.4419 24.658803,-801.65081 Z"
+         points="287.10039,-9412.4862 364.74451,-8008.4419 24.658803,-801.65081 16.387704,-807.43575 " />
+      <path
+         sodipodi:type="inkscape:box3dside"
+         id="path22"
+         style="fill:#afafde;fill-rule:evenodd;stroke:none;stroke-linejoin:round"
+         inkscape:box3dsidetype="13"
+         d="m 16.387704,-286.71188 270.712686,-355.68808 77.64412,58.0359 -340.085707,297.89129 z"
+         points="287.10039,-642.39996 364.74451,-584.36406 24.658803,-286.47277 16.387704,-286.71188 " />
+      <path
+         sodipodi:type="inkscape:box3dside"
+         id="path20"
+         style="fill:#d7d7ff;fill-rule:evenodd;stroke:none;stroke-linejoin:round"
+         inkscape:box3dsidetype="14"
+         d="m 287.10039,-9412.4862 v 8770.08624 l 77.64412,58.0359 V -8008.4419 Z"
+         points="287.10039,-642.39996 364.74451,-584.36406 364.74451,-8008.4419 287.10039,-9412.4862 " />
+      <path
+         sodipodi:type="inkscape:box3dside"
+         id="path18"
+         style="fill:#8686bf;fill-rule:evenodd;stroke:none;stroke-linejoin:round"
+         inkscape:box3dsidetype="3"
+         d="M 16.387704,-807.43575 287.10039,-9412.4862 V -642.39996 L 16.387704,-286.71188 Z"
+         points="287.10039,-9412.4862 287.10039,-642.39996 16.387704,-286.71188 16.387704,-807.43575 " />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="14.709906"
+       y="27.318396"
+       id="text44"><tspan
+         sodipodi:role="line"
+         id="tspan42"
+         x="14.709906"
+         y="27.318396"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.75555611px;font-family:Ravie;-inkscape-font-specification:Ravie;fill:#005522;stroke-width:0.26458332">JCPA</tspan></text>
+    <ellipse
+       style="opacity:0.16000001;fill:url(#linearGradient5985);fill-opacity:1;stroke-width:0.26458332"
+       id="path46"
+       cx="47.80719"
+       cy="21.18927"
+       rx="45.705776"
+       ry="16.636202" />
+  </g>
+</svg>
