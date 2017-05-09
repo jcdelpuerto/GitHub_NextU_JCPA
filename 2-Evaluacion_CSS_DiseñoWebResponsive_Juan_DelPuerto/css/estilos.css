@@ -1,0 +1,111 @@
+body {
+  font-family: Dancing Script;
+}
+
+header{
+  background-color: #5b7989;
+  border-top-left-radius: 10px;
+  border-top-right-radius:  10px;
+  animation-duration: 2s;
+  animation-name: slidein;
+  }
+
+@-webkit-keyframes slidein {
+  0%{
+    margin-top: 150%;
+  }
+  60%{
+    margin-top: -5%;
+  }
+  100%{
+    margin-top: 0%;
+  }
+}
+
+.cabecera{
+  display: flex;
+  flex-flow: row wrap;
+  height: auto;
+}
+
+.titulo {
+  font-size: 15px;
+  text-shadow: 2px 2px #02010a;
+  color: white;
+  height: 90%;
+  float: left;
+  flex-grow: 1;
+  order: 1;
+}
+
+.menu-principal{
+  font-size: 25px;
+  text-shadow: 2px 2px #02010a;
+  color: white;
+  display: inline-block;
+  padding: 0.5% 2% 0.5% 2%;
+  flex-grow: 1;
+  order: 2;
+}
+
+nav{
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+li a{
+padding: 15px;
+color: white;
+}
+
+.activePage{
+  text-decoration:none;
+}
+
+
+@media (max-width:899px){
+  .titulo {
+    text-align: center;
+  }
+  .menu-principal{
+    clear: both;
+    float: left;
+    overflow: hidden;
+    width: 100%
+  }
+  ul{
+    float: left;
+    list-style-type: none;
+    padding: 0;
+    position: relative;
+    left: 50%;
+  }
+
+  li{
+    float: left;
+    position: relative;
+    right: 50%;
+  }
+}
+
+@media (min-width:900px){
+  .titulo {
+    text-align: left;
+  }
+  ul{
+    float:right;
+    list-style-type: none;
+    padding-right: 1%;
+    position: relative;
+    right: 25%;
+    top: 40%;
+  }
+
+  li{
+    float: left;
+    position: relative;
+    left: 25%;
+    top: 40%;
+  }
+}
