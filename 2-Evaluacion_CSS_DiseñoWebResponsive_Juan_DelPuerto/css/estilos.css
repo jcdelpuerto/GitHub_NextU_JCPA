@@ -99,6 +99,45 @@ color: white;
     background-color:  #C6d5c5;
 }
 
+.paisaje1{
+  background-color:  #d5c75f;
+}
+
+.paisaje2{
+  background-color:  #d5c75f;
+}
+
+.paisaje3{
+  background-color:  #d5c75f;
+}
+
+.paisaje4{
+  background-color:  #d5c75f;
+}
+
+.paisaje5{
+  background-color:  #d5c75f;
+}
+
+.paisaje6{
+  background-color:  #d5c75f;
+}
+
+.imagen-paisaje1{
+  -webkit-filter:blur(10px);
+  filter:blur(10px);
+}
+
+.imagen-paisaje2, .imagen-paisaje4, .imagen-paisaje6{
+  -webkit-filter:grayscale(100%);
+  filter:grayscale(100%);
+}
+
+.imagen-paisaje3{
+  -webkit-filter:sepia(90%);
+  filter:sepia(90%);
+}
+
 .contenido{
   display: -webkit-flex;
 	display: flex;
@@ -107,6 +146,10 @@ color: white;
 }
 
 .cabecera, .imagen-central, .paisaje-principal, .retrato-principal{
+  width: 100%;
+}
+
+.paisaje1, .paisaje2, .paisaje3, .paisaje4, .paisaje5, .paisaje6{
   width: 100%;
 }
 
@@ -181,6 +224,10 @@ figcaption{
     border-width: 1px;
   }
 
+  .paisaje1, .paisaje2, .paisaje3, .paisaje4, .paisaje5, .paisaje6{
+    width: 100%;
+  }
+
   .pie-pagina1, .pie-pagina2, .pie-pagina3, .pie-pagina4{
     width: 100%;
   }
@@ -220,6 +267,14 @@ figcaption{
 
   .paisaje-principal, .retrato-principal{
     width: 50%;
+  }
+
+  .paisaje1, .paisaje2, .paisaje3{
+    width: 33.33%;
+  }
+
+  .paisaje4, .paisaje5, .paisaje6{
+    width: 33.33%;
   }
 
   .pie-pagina1, .pie-pagina2, .pie-pagina3, .pie-pagina4{
