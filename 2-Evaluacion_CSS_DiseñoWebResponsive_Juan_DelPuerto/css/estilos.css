@@ -83,7 +83,19 @@ color: white;
   background-color:  #d5c75f;
 }
 
-.pie-pagina{
+.pie-pagina1{
+    background-color:  #C6d5c5;
+}
+
+.pie-pagina2{
+    background-color:  #C6d5c5;
+}
+
+.pie-pagina3{
+    background-color:  #C6d5c5;
+}
+
+.pie-pagina4{
     background-color:  #C6d5c5;
 }
 
@@ -94,8 +106,22 @@ color: white;
 	flex-flow: row wrap;
 }
 
-.cabecera, .imagen-central, .paisaje-principal, .retrato-principal, .pie-pagina{
+.cabecera, .imagen-central, .paisaje-principal, .retrato-principal{
   width: 100%;
+}
+
+.pie-pagina1, .pie-pagina2, .pie-pagina3, .pie-pagina4{
+  width: 100%;
+}
+
+h1{
+  padding: 5px;
+}
+
+
+h2{
+  font-size: 20px;
+  padding: 10px;
 }
 
 img{
@@ -155,6 +181,16 @@ figcaption{
     border-width: 1px;
   }
 
+  .pie-pagina1, .pie-pagina2, .pie-pagina3, .pie-pagina4{
+    width: 100%;
+  }
+
+  .pie-pagina4{
+    border-bottom-left-radius:  10px;
+    border-bottom-right-radius:  10px;
+  }
+
+
 }
 
 @media (min-width:900px){
@@ -186,5 +222,16 @@ figcaption{
     width: 50%;
   }
 
+  .pie-pagina1, .pie-pagina2, .pie-pagina3, .pie-pagina4{
+    width: 25%;
+  }
+
+  .pie-pagina1{
+    border-bottom-left-radius:  10px;
+  }
+
+  .pie-pagina4{
+    border-bottom-right-radius:  10px;
+  }
 
 }
