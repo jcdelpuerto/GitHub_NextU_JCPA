@@ -1,0 +1,129 @@
+/* Clase para darle estilos al body */
+.blog-body {
+margin: 5px;
+font-family: 'Ubuntu', sans-serif;
+}
+
+.logo {
+  text-align: left;
+  padding-left: 0;
+
+}
+
+.logo-img {
+  width: 100px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  float: left;
+}
+
+.usuario {
+  width: 3rem;
+  height: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  padding-left: 0;
+  float: left;
+}
+
+.texto_imagen_comentario{
+  margin: 2px;
+}
+
+.redes-sociales {
+  margin-top: 50px;
+  margin-bottom: 10px;
+  text-align: center;
+  padding-right: 0;
+}
+
+.img-social {
+  width: 30px;
+  height: 30px;
+}
+
+.navbar.center .navbar-inner {
+    text-align: center;
+}
+
+.navbar.center .navbar-inner .nav {
+    display:inline-block;
+    float: none;
+    vertical-align: middle;
+}
+
+.navbar-btn{
+  padding-left: 45px;
+  padding-right: 45px;
+  margin: 10px;
+  background-color: darkred;
+  color: white;
+}
+
+
+.btn-social-icon{
+  padding-left: 1 px;
+  padding-right: 1px;
+  margin: 0px;
+}
+
+.entrada_blog{
+  border-bottom:1px solid darkred;
+  border-left:1px solid darkred;
+  border-right:1px solid darkred;
+}
+
+.glyphicon-search{
+  color: darkred;
+  background-color: white;
+}
+
+.btn-info{
+  background-color: white;
+  border-color: gray;
+}
+
+.btn-info:hover{
+  background-color: darkred;
+  border-color: gray;
+}
+
+.glyphicon-search:hover{
+  color: white;
+  background-color: darkred ;
+}
+
+.texto_busqueda{
+  border-color: gray;
+}
+
+.fecha_post{
+  text-align: left;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.opciones_busqueda{
+  width: 90%;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  border:1px solid darkred;
+}
+
+.busqueda{
+  width: 90%;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+
+.grupo_busqueda{
+  width: 95%;
+}
