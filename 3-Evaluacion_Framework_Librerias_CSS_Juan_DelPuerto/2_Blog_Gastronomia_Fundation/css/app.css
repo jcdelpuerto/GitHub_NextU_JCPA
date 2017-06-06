@@ -1,0 +1,51 @@
+.blog-body{
+  margin: 5px;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #cccccc;
+  background-image: url("FondoCocina.jpg");
+  background-repeat: no-repeat;
+  background-size:100% 300%;
+}
+
+.titulo {
+  background-color: #dce5e4 ;
+}
+
+.columna_izq, .columna_der{
+  background-color: #3ffce9;
+}
+
+.columna_izq{
+  height: 1100px;
+}
+
+.titulo {
+  padding: 2px;
+}
+
+
+.blog-post, .busqueda, .navegacion, .titulo_favoritos, .favoritos{
+  padding: 5px;
+  margin: 15px;
+}
+
+.comentarios{
+  background-color: #dce8e6;
+  padding-top: 15px;
+  padding-bottom: 2px;
+}
+
+.historial_comentarios{
+  background-color: #dce5e4;
+  padding-top: 15px;
+  padding-bottom: 2px;
+
+}
+
+i {
+  font-size: 30px;
+}
+
+.fi-magnifying-glass{
+  padding: 0;
+}
