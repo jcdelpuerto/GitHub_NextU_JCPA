@@ -1,0 +1,96 @@
+.blog-body{
+  margin: 5px;
+  background-image: url("Sumidero.jpg");
+  background-repeat: no-repeat;
+  background-size:100%;
+
+
+
+  }
+
+.barra-superior{
+  min-height: 8rem;
+}
+
+.logo{
+  width: 100px;
+  margin-top: 0.5rem;
+  float: left;
+}
+
+.barra-superior .row{
+  margin-bottom: 0;
+}
+
+.contenedor-botones{
+  margin-top: 2rem;
+  margin-left: 0rem;
+  padding: 0rem;
+}
+
+.slogan{
+  margin-top: 3rem;
+  margin-left: 10rem;
+}
+
+.autor-image{
+  padding: 10px;
+  margin: 10px;
+}
+
+.icono {
+   float:left;
+ }
+
+ .div[class*="columna"]{
+   min-height: 50rem;
+   border: 1px solid #eceff1;
+ }
+
+ .red_social{
+   width: 55px;
+   height: 55px;
+}
+
+.imagen-entrada-blog{
+  float: left;
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid gray;
+}
+
+.texto-entrada-blog{
+  font-size: 20px;
+}
+
+.contenedor-redes{
+  height: 100%;
+}
+
+@media (max-width: 600px) {
+  .imagen-entrada-blog{
+    width: 90% !important;
+  }
+}
+
+@media (max-width: 320px) {
+  .logo{
+    float: left;
+    margin-top: 0.5rem;
+    width: 20% !important;
+  }
+  .slogan{
+    margin-top: 5rem;
+    margin-left: 5rem;
+  }
+
+}
+
+.entrada-blog{
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+
+.contenedor-info-autor{
+  margin-top: 20px;
+}

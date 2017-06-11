@@ -4,20 +4,35 @@
   background-color: #cccccc;
   background-image: url("FondoCocina.jpg");
   background-repeat: no-repeat;
-  background-size:100% 300%;
-}
+  background-size:100% 250%;
+  }
+
 
 .titulo {
   background-color: #dce5e4 ;
 }
 
-.columna_izq, .columna_der{
+.columna_izq{
+  background-color: #34c9ba;
+}
+
+.columna_der{
   background-color: #3ffce9;
 }
 
-.columna_izq{
-  height: 1100px;
+/** desktop-laptop y tablet horizontal **/
+@media (min-width:768px) and (max-width:1023px)  {
+  .columna_izq{
+    height: 1650px;
+  }
 }
+
+@media (min-width:1024px){
+  .columna_izq{
+    height: 1050px;
+  }
+}
+
 
 .titulo {
   padding: 2px;
