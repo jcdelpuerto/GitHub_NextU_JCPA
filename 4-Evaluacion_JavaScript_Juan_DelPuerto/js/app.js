@@ -1,80 +1,146 @@
-//hacer que la tecla presionada reduzca su tamaño
-var teclas = document.getElementsByClassName('tecla');
-for (i = 0 ; i < teclas.length ; i++) {
-  teclas[i].dataPos = i + 1;
-  teclas[i].addEventListener("mousedown", function() {
-  if (this.dataPos < 19) {
-    this.style="width:25%;";
-    this.style="height:58.91px";
-  } else {
-    this.style="width:80%;";
-    this.style="height: 95%";
+//nombre del modulo
+var Calculadora = {};
+
+//definición del módulo
+Calculadora = (function(){
+  var teclas, pantalla, x, nuevo, punto
+
+  //poner las teclas en un arreglo
+  teclas = document.getElementsByClassName('tecla');
+
+  //elemento pantalla de la calculadora
+  pantalla = document.getElementById("display");
+
+  for (i = 0 ; i < teclas.length ; i++) {
+
+    //identificar tecla oprimida
+    teclas[i].dataPos = i + 1;
+
+    //hacer que la tecla presionada reduzca su tamaño
+    teclas[i].addEventListener("mousedown", function() {
+    if (this.dataPos < 19) {
+      this.style="width:25%;";
+      this.style="height:58.91px";
+    }
+    else
+    {
+      this.style="width:80%;";
+      this.style="height: 95%";
+    }
+    }, false);
+
+    //hacer que la tecla presionada vuelva a su forma original al soltarla
+    teclas[i].addEventListener("mouseup", function() {
+    if (this.dataPos < 19) {
+      this.style="width:29%;";
+      this.style="height: 62.91px";
+    }
+    else
+    {
+      this.style="width:90%;";
+      this.style="height: 100%";
+    }
+    }, false);
   }
-  }, false);
-}
+  var numeros = document.querySelectorAll("img");
+    for (var i = 0; i < numeros.length; i++) {
+      numeros[i].onclick = agregar;
+    }
+      function agregar(e) {
+          e.stopPropagation()
+          var valorEnPantalla = pantalla.innerHTML
+          var agregarNumeroPantalla = this.getAttribute("alt")
+          switch (agregarNumeroPantalla) {
+            case "0":
+              if (valorEnPantalla != '0') {
+                pantalla.innerHTML = valorEnPantalla + agregarNumeroPantalla ;
+              }
+              break;
+            case "1":
+              if (valorEnPantalla == '0') {
+                pantalla.innerHTML = agregarNumeroPantalla ;
+              }
+              else if (valorEnPantalla != '0') {
+                pantalla.innerHTML = valorEnPantalla + agregarNumeroPantalla ;
+              }
+              break;
+            case "2":
+              if (valorEnPantalla == '0') {
+                pantalla.innerHTML = agregarNumeroPantalla ;
+              }
+              else if (valorEnPantalla != '0') {
+                pantalla.innerHTML = valorEnPantalla + agregarNumeroPantalla ;
+              }
+              break;
+            case "3":
+              if (valorEnPantalla == '0') {
+                pantalla.innerHTML = agregarNumeroPantalla ;
+              }
+              else if (valorEnPantalla != '0') {
+                pantalla.innerHTML = valorEnPantalla + agregarNumeroPantalla ;
+              }
+              break;
+            case "4":
+              if (valorEnPantalla == '0') {
+                pantalla.innerHTML = agregarNumeroPantalla ;
+              }
+              else if (valorEnPantalla != '0') {
+                pantalla.innerHTML = valorEnPantalla + agregarNumeroPantalla ;
+              }
+              break;
+            case "5":
+              if (valorEnPantalla == '0') {
+                pantalla.innerHTML = agregarNumeroPantalla ;
+              }
+              else if (valorEnPantalla != '0') {
+                pantalla.innerHTML = valorEnPantalla + agregarNumeroPantalla ;
+              }
+              break;
+            case "6":
+              if (valorEnPantalla == '0') {
+                pantalla.innerHTML = agregarNumeroPantalla ;
+              }
+              else if (valorEnPantalla != '0') {
+                pantalla.innerHTML = valorEnPantalla + agregarNumeroPantalla ;
+              }
+              break;
+            case "7":
+              if (valorEnPantalla == '0') {
+                pantalla.innerHTML = agregarNumeroPantalla ;
+              }
+              else if (valorEnPantalla != '0') {
+                pantalla.innerHTML = valorEnPantalla + agregarNumeroPantalla ;
+              }
+              break;
+            case "8":
+              if (valorEnPantalla == '0') {
+                pantalla.innerHTML = agregarNumeroPantalla ;
+              }
+              else if (valorEnPantalla != '0') {
+                pantalla.innerHTML = valorEnPantalla + agregarNumeroPantalla ;
+              }
+              break;
+            case "9":
+              if (valorEnPantalla == '0') {
+                pantalla.innerHTML = agregarNumeroPantalla ;
+              }
+              else if (valorEnPantalla != '0') {
+                pantalla.innerHTML = valorEnPantalla + agregarNumeroPantalla ;
+              }
+              break;
+            case "On":
+              pantalla.innerHTML = "0";
+              break;
+            case "punto":
+              var existePunto = valorEnPantalla.indexOf(".")
+              if (existePunto == -1) {
+                pantalla.innerHTML = valorEnPantalla + ".";
+              }
+              break;
+            default:
 
-//y vuelva a su forma original al soltarla
-for (i = 0 ; i < teclas.length ; i++) {
-  teclas[i].dataPos = i + 1;
-  teclas[i].addEventListener("mouseup", function() {
-  if (this.dataPos < 19) {
-    this.style="width:29%;";
-    this.style="height: 62.91px";
-  } else {
-    this.style="width:90%;";
-    this.style="height: 100%";
-  }
-  }, false);
-}
+          }
 
+      }
 
-
-
-
-
-
-
-//Identificamos la pantalla de la Calculadora al cargar la página
-window.onload = function(){
-  pantalla=document.getElementById("display");
-}
-
-//variables para control
-var x="0"; //guardar número que está en pantalla
-var xi=1; //iniciar número en pantalla: 1=nuevo número; 0=agregar dígitos;
-var punto=0; //estado punto decimal 0=no, 1=si;
-
-
-function numero(xx) { //recoge el número pulsado en el argumento.
-         if (x=="0" || xi==1  ) { // inicializar un número,
-            pantalla.innerHTML=xx; //mostrar en pantalla
-            x=xx; //guardar número
-            if (xx==".") { //si escribimos un  punto  al principio del número
-               pantalla.innerHTML="0."; //escribimos 0.
-               x=xx; //guardar número
-               punto=1; //cambiar estado del punto
-               }
-           }
-           else { //continuar escribiendo un número
-               if (xx=="." && punto==0) { //si escribimos un punto decimal pòr primera vez
-                   pantalla.innerHTML+=xx;
-                   x+=xx;
-                   punto=1; //cambiar el estado del punto
-               }
-              //si intentamos escribir un segundo punto decimal no realiza ninguna acción.
-               else if (xx=="." && punto==1) {}
-               //Resto de casos: escribir un número del 0 al 9:
-               else {
-                   pantalla.innerHTML+=xx;
-                   x+=xx
-               }
-            }
-            xi=0 //el número está iniciado y podemos ampliarlo.
-         }
-
-
-var Calculadora = {
-  init: function(){
-
-  }
-}
+}());
