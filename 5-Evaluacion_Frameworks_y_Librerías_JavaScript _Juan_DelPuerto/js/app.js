@@ -1,110 +1,93 @@
-var numColumnas = 7;
-var numFilas = 5;
-var statusJuego = 0;
 var movimientos = 2;
 var puntuacion = 0;
-var bloqueo = false;
-var vectorDiv = [];
-var item;
-var itemDiv;
-var data = [];
 var minuto= 1;
 var segundo=60;
+var bloqueo = false;
+var vectorDiv = [];
+var data = [];
+var item;
+var itemDiv;
+
 var juegoDulces = {
   init: function(){
+    juegoDulces.colorTitulo();
     $(".btn-reinicio").on("click", function(){
-      switch(statusJuego){
-        case 0:
-          juegoDulces.iniciar();
-          break;
-        case 1:
-          statusJuego = 2;
-          clearInterval(juego);
-          juegoDulces.terminar();
-          break;
-        case 2:
-          juegoDulces.reiniciar();
-          break;
-        default:
-          alert('Estatus de juego no definido');
-      }
-    });
-    this.colorTitulo();
-    this.mostrarImagenes();
-  },
-
-  iniciar: function(){
-    $(".btn-reinicio").html('Reiniciar');
-    statusJuego = 1;
-    juego = setInterval (function(){
-      juegoDulces.cronometro()
-    },1000);
-    this.buscaMatchColumna();
-    this.buscaMatchFila();
-    if(data.length != 0){
-      setTimeout(function(){
-        juegoDulces.animarMatch();
-      }, 800);
-    }
-  },
-
-  terminar: function(){
-    $(".panel-tablero").hide("slide", {direction: "left"}, "slow", function(){
-      $(".time").hide("slide", {direction: "left"}, "slow");
-      $(".panel-score").animate({width: "390%"}, 1000);
-      if(statusJuego != 1){
-        $(".score").before("<p class='final'>Juego Terminado</p>");
+      if ($(".btn-reinicio").text() === 'Reiniciar') {
+  			location.reload(true);
+  		}
+      else if ($(".btn-reinicio").text() === 'Iniciar') {
+        $(".btn-reinicio").html('Reiniciar');
+        juego = setInterval (function(){
+          juegoDulces.cronometro()
+        },1000);
+        juegoDulces.mostrarImagenes();
+        juegoDulces.buscaMatchColumna();
+        juegoDulces.buscaMatchFila();
+        if(data.length != 0){
+          setTimeout(function(){
+            juegoDulces.animarMatch();
+          }, 800);
+        }
       }
     });
   },
 
-  reiniciar: function(){
-    var col = $("div[class^='col']");
-    for (var i = 0; i < col.length; i++) {
-      $(col[i]).html('');
-    }
-    clearInterval(juego);
-    $(".btn-reinicio").html('Iniciar');
-    $("#timer").html('02:00');
-    $(".final").remove();
-    $("#movimientos-text").html('0');
-    $("#score-text").html('0');
-    puntuacion = 0;
-    movimientos = 0;
-    this.mostrarImagenes();
-    $(".main-titulo-2").remove();
-    $(".panel-score").animate({width: "25%"}, 1000, function(){
-      $(".panel-tablero").show("slide", {direction: "left"}, "slow");
-      $(".time").show("slide", {direction: "left"}, "slow");
-    });
-    statusJuego = 0;
-  },
-
-  colorTitulo: function(){
-    setInterval(function(){
-      $(".main-titulo").switchClass("main-titulo","main-titulo-blanco", 350),
-      $(".main-titulo-blanco").switchClass("main-titulo-blanco","main-titulo", 350)
-      }, 1000);
+  colorTitulo: function(selector){
+    $('.main-titulo').animate({
+        opacity: '1',
+      }, {
+        step: function () {
+          $(this).css('color', 'white');
+        },
+        queue: true
+      })
+      .delay(900)
+      .animate({
+        opacity: '1'
+      }, {
+        step: function () {
+          $(this).css('color', 'yellow');
+        },
+        queue: true
+      }, 500)
+      .delay(900)
+      .animate({
+  			opacity: '1'
+  		}, {
+  			step: function () {
+  				$(this).css('color', 'white');
+  			},
+  			queue: true
+  		})
+  		.animate({
+  			opacity: '1'
+  		}, {
+  			step: function () {
+  				$(this).css('color', 'yellow');
+  				juegoDulces.colorTitulo();
+  			},
+  			queue: true
+  		});
   },
 
   mostrarImagenes: function(){
     var contador = 1;
-    var numImg = 1;
-    for(var i = 1; i <= numColumnas; i++){
-      for(var j = 1; j <= numFilas; j++){
+    var imagenNum = 1;
+    for(var i = 1; i <= 7; i++){
+      for(var j = 1; j <= 5; j++){
         var imagen = new this.imagenesDulces;
         var src = imagen[Math.floor(Math.random() * imagen.total)];
-        $(".col-" + contador).append("<div id='item-"+ numImg +" img-"+ j +"'><img src="+ src +" class='imagen-"+ numImg +"'></div>");
-        $(".imagen-" + numImg).draggable({
+        $(".col-" + contador).append("<div id='item-"+ imagenNum +" img-"+ j +"'><img src="+ src +" class='imagen-"+ imagenNum +"'></div>");
+        $(".imagen-" + imagenNum).draggable({
           revert: true,
           containment: ".panel-tablero",
           start: function(){
-            if(statusJuego == 1){
+            if ($(".btn-reinicio").text() === 'Reiniciar'){
               $("#movimientos-text").html(movimientos++);
             }
           },
           stop: function(){
-            if(statusJuego == 1){
+            if ($(".btn-reinicio").text() === 'Reiniciar'){
               if(bloqueo == false){
                 juegoDulces.buscaMatchColumna();
                 juegoDulces.buscaMatchFila();
@@ -114,10 +97,9 @@ var juegoDulces = {
           },
           drag: function(event, ui){}
         });
-
-        $("[id='item-"+ numImg +" img-"+ j +"'").droppable({
+        $("[id='item-"+ imagenNum +" img-"+ j +"'").droppable({
           drop: function(event, ui){
-            if(statusJuego == 1){
+            if ($(".btn-reinicio").text() === 'Reiniciar'){
               if(bloqueo == false){
                 primeraImagen = event.target.lastChild;
                 segundaImagen = ui.draggable[0];
@@ -129,7 +111,7 @@ var juegoDulces = {
             }
           }
         });
-        numImg++;
+        imagenNum++;
       }
       contador++;
     }
@@ -185,7 +167,7 @@ var juegoDulces = {
                                        imagen[k] && $(col[i][5]).attr("src") ==
                                        imagen[k] && $(col[i][6]).attr("src") ==
                                        imagen[k]){
-          puntuacion = puntuacion + 7;
+          puntuacion = puntuacion + 49;
           item = {arrays: [0,1,2,3,4,5,6], colFil: colDiv[i], obj: objeto, item: i, puntos: puntuacion};
           data.push(item);
         }
@@ -195,7 +177,7 @@ var juegoDulces = {
                                             imagen[k] && $(col[i][4]).attr("src") ==
                                             imagen[k] && $(col[i][5]).attr("src") ==
                                             imagen[k]){
-          puntuacion = puntuacion + 6;
+          puntuacion = puntuacion + 36;
           item = {arrays: [0,1,2,3,4,5], colFil: colDiv[i], obj: objeto, item: i, puntos: puntuacion};
           data.push(item);
         }
@@ -205,7 +187,7 @@ var juegoDulces = {
                                             imagen[k] && $(col[i][5]).attr("src") ==
                                             imagen[k] && $(col[i][6]).attr("src") ==
                                             imagen[k]){
-          puntuacion = puntuacion + 6;
+          puntuacion = puntuacion + 36;
           item = {arrays: [1,2,3,4,5,6], colFil: colDiv[i], obj: objeto, item: i, puntos: puntuacion};
           data.push(item);
         }
@@ -214,7 +196,7 @@ var juegoDulces = {
                                             imagen[k] && $(col[i][3]).attr("src") ==
                                             imagen[k] && $(col[i][4]).attr("src") ==
                                             imagen[k]){
-          puntuacion = puntuacion + 5;
+          puntuacion = puntuacion + 25;
           item = {arrays: [0,1,2,3,4], colFil: colDiv[i], obj: objeto, item: i, puntos: puntuacion};
           data.push(item);
         }
@@ -223,7 +205,7 @@ var juegoDulces = {
                                             imagen[k] && $(col[i][4]).attr("src") ==
                                             imagen[k] && $(col[i][5]).attr("src") ==
                                             imagen[k]){
-          puntuacion = puntuacion + 5;
+          puntuacion = puntuacion + 25;
           item = {arrays: [1,2,3,4,5], colFil: colDiv[i], obj: objeto, item: i, puntos: puntuacion};
           data.push(item);
         }
@@ -232,7 +214,7 @@ var juegoDulces = {
                                             imagen[k] && $(col[i][5]).attr("src") ==
                                             imagen[k] && $(col[i][6]).attr("src") ==
                                             imagen[k]){
-          puntuacion = puntuacion + 5;
+          puntuacion = puntuacion + 25;
           item = {arrays: [2,3,4,5,6], colFil: colDiv[i], obj: objeto, item: i, puntos: puntuacion};
           data.push(item);
         }
@@ -240,7 +222,7 @@ var juegoDulces = {
                                             imagen[k] && $(col[i][2]).attr("src") ==
                                             imagen[k] && $(col[i][3]).attr("src") ==
                                             imagen[k]){
-          puntuacion = puntuacion + 4;
+          puntuacion = puntuacion + 16;
           item = {arrays: [0,1,2,3], colFil: colDiv[i], obj: objeto, item: i, puntos: puntuacion};
           data.push(item);
         }
@@ -248,7 +230,7 @@ var juegoDulces = {
                                             imagen[k] && $(col[i][3]).attr("src") ==
                                             imagen[k] && $(col[i][4]).attr("src") ==
                                             imagen[k]){
-          puntuacion = puntuacion + 4;
+          puntuacion = puntuacion + 16;
           item = {arrays: [1,2,3,4], colFil: colDiv[i], obj: objeto, item: i, puntos: puntuacion};
           data.push(item);
         }
@@ -256,7 +238,7 @@ var juegoDulces = {
                                             imagen[k] && $(col[i][4]).attr("src") ==
                                             imagen[k] && $(col[i][5]).attr("src") ==
                                             imagen[k]){
-          puntuacion = puntuacion + 4;
+          puntuacion = puntuacion + 16;
           item = {arrays: [2,3,4,5], colFil: colDiv[i], obj: objeto, item: i, puntos: puntuacion};
           data.push(item);
         }
@@ -264,7 +246,7 @@ var juegoDulces = {
                                              imagen[k] && $(col[i][5]).attr("src") ==
                                              imagen[k] && $(col[i][6]).attr("src") ==
                                              imagen[k]){
-          puntuacion = puntuacion + 4;
+          puntuacion = puntuacion + 16;
           item = {arrays: [3,4,5,6], colFil: colDiv[i], obj: objeto, item: i, puntos: puntuacion};
           data.push(item);
         }
@@ -327,7 +309,7 @@ var juegoDulces = {
                                         imagen[k] && $(fila[i][5]).attr("src") ==
                                         imagen[k] && $(fila[i][6]).attr("src") ==
                                         imagen[k]){
-          puntuacion = puntuacion + 7;
+          puntuacion = puntuacion + 49;
           item = {arrays: [0,1,2,3,4,5,6], colFil: filaDiv[i], obj: objeto, item: i, puntos: puntuacion};
           data.push(item);
         }
@@ -337,7 +319,7 @@ var juegoDulces = {
                                              imagen[k] && $(fila[i][4]).attr("src") ==
                                              imagen[k] && $(fila[i][5]).attr("src") ==
                                              imagen[k]){
-          puntuacion = puntuacion + 6;
+          puntuacion = puntuacion + 36;
           item = {arrays: [0,1,2,3,4,5], colFil: filaDiv[i], obj: objeto, item: i, puntos: puntuacion};
           data.push(item);
         }
@@ -347,7 +329,7 @@ var juegoDulces = {
                                              imagen[k] && $(fila[i][5]).attr("src") ==
                                              imagen[k] && $(fila[i][6]).attr("src") ==
                                              imagen[k]){
-          puntuacion = puntuacion + 6;
+          puntuacion = puntuacion + 36;
           item = {arrays: [1,2,3,4,5,6], colFil: filaDiv[i], obj: objeto, item: i, puntos: puntuacion};
           data.push(item);
         }
@@ -356,7 +338,7 @@ var juegoDulces = {
                                              imagen[k] && $(fila[i][3]).attr("src") ==
                                              imagen[k] && $(fila[i][4]).attr("src") ==
                                              imagen[k]){
-          puntuacion = puntuacion + 5;
+          puntuacion = puntuacion + 25;
           item = {arrays: [0,1,2,3,4], colFil: filaDiv[i], obj: objeto, item: i, puntos: puntuacion};
           data.push(item);
         }
@@ -365,7 +347,7 @@ var juegoDulces = {
                                              imagen[k] && $(fila[i][4]).attr("src") ==
                                              imagen[k] && $(fila[i][5]).attr("src") ==
                                              imagen[k]){
-          puntuacion = puntuacion + 5;
+          puntuacion = puntuacion + 25;
           item = {arrays: [1,2,3,4,5], colFil: filaDiv[i], obj: objeto, item: i, puntos: puntuacion};
           data.push(item);
         }
@@ -374,7 +356,7 @@ var juegoDulces = {
                                              imagen[k] && $(fila[i][5]).attr("src") ==
                                              imagen[k] && $(fila[i][6]).attr("src") ==
                                              imagen[k]){
-          puntuacion = puntuacion + 5;
+          puntuacion = puntuacion + 25;
           item = {arrays: [2,3,4,5,6], colFil: filaDiv[i], obj: objeto, item: i, puntos: puntuacion};
           data.push(item);
         }
@@ -382,7 +364,7 @@ var juegoDulces = {
                                              imagen[k] && $(fila[i][2]).attr("src") ==
                                              imagen[k] && $(fila[i][3]).attr("src") ==
                                              imagen[k]){
-          puntuacion = puntuacion + 4;
+          puntuacion = puntuacion + 16;
           item = {arrays: [0,1,2,3], colFil: filaDiv[i], obj: objeto, item: i, puntos: puntuacion};
           data.push(item);
         }
@@ -390,7 +372,7 @@ var juegoDulces = {
                                              imagen[k] && $(fila[i][3]).attr("src") ==
                                              imagen[k] && $(fila[i][4]).attr("src") ==
                                              imagen[k]){
-          puntuacion = puntuacion + 4;
+          puntuacion = puntuacion + 16;
           item = {arrays: [1,2,3,4], colFil: filaDiv[i], obj: objeto, item: i, puntos: puntuacion};
           data.push(item);
         }
@@ -398,7 +380,7 @@ var juegoDulces = {
                                              imagen[k] && $(fila[i][4]).attr("src") ==
                                              imagen[k] && $(fila[i][5]).attr("src") ==
                                              imagen[k]){
-          puntuacion = puntuacion + 4;
+          puntuacion = puntuacion + 16;
           item = {arrays: [2,3,4,5], colFil: filaDiv[i], obj: objeto, item: i, puntos: puntuacion};
           data.push(item);
         }
@@ -406,7 +388,7 @@ var juegoDulces = {
                                              imagen[k] && $(fila[i][5]).attr("src") ==
                                              imagen[k] && $(fila[i][6]).attr("src") ==
                                              imagen[k]){
-          puntuacion = puntuacion + 4;
+          puntuacion = puntuacion + 16;
           item = {arrays: [3,4,5,6], colFil: filaDiv[i], obj: objeto, item: i, puntos: puntuacion};
           data.push(item);
         }
@@ -507,15 +489,15 @@ var juegoDulces = {
     setTimeout(function(){
       var col = new juegoDulces.tomarColumnas;
       var contador = 1;
-      var numImg = 1;
-      for(var i = 0;  i <= numColumnas; i++){
+      var imagenNum = 1;
+      for(var i = 0;  i <= 7; i++){
         var contador2 = 1;
-        for (var j = 0; j < numFilas; j++){
+        for (var j = 0; j < 5; j++){
           var nuevoDiv = $(col[i])[j];
-          $(nuevoDiv).attr("id", "item-"+ numImg +" img-"+ contador2);
-          $(nuevoDiv).find("img").attr("class", "item-"+ numImg);
+          $(nuevoDiv).attr("id", "item-"+ imagenNum +" img-"+ contador2);
+          $(nuevoDiv).find("img").attr("class", "item-"+ imagenNum);
           contador2++;
-          numImg++;
+          imagenNum++;
         }
         contador++;
       }
@@ -544,7 +526,6 @@ var juegoDulces = {
       $(".time").hide();
       segundo=60;
       minuto=1;
-      statusJuego=2;
       $("#timer").html("0"+minuto+":"+segundo);
     }
     if ( segundo == 0)  {
